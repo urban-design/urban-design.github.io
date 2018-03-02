@@ -33,8 +33,6 @@ a:hover, a:active {
 /* Header and Footers */
 h1:hover {
     position: relative;
-    color: #ededed; /* #0a0a0a; */
-    letter-spacing: 3px;
     -webkit-text-size-adjust: 100%;
     font-variant-ligatures: none;
     -webkit-font-variant-ligatures: none;
@@ -43,10 +41,10 @@ h1:hover {
     -moz-osx-font-smoothing: grayscale;
     font-smoothing: antialiased;
     -webkit-font-smoothing: antialiased;
-    text-shadow: 0px 1px 1.5px #2C327D;
+    text-shadow: 0px 1px 1.5px #0a0a0a;
 }
 h1 {
-    color: #ededed;
+    color: #2C327D;
     letter-spacing: 3px;
     font-family: 'Montserrat', sans-serif;
     font-size: 4em;
@@ -61,7 +59,7 @@ h1 {
     -moz-osx-font-smoothing: grayscale;
     font-smoothing: antialiased;
     -webkit-font-smoothing: antialiased;
-    text-shadow: 0px 1px 1.5px #2C327D; /* rgba(0,0,0,0.004); */
+    text-shadow: 0px 1px 1.5px #0a0a0a;
 }
 h2 {
     position: relative;
