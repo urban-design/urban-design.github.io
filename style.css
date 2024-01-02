@@ -10,6 +10,8 @@ html {
     background-color: transparent;
 }
 body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 10pt;
     background: #fff;
     position: relative;
     text-align: left;
