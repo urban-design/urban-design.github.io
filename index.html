@@ -1,54 +1,411 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-      <link rel="stylesheet" href="style.css">
-    <title>Stormi ACDC: Empowering Focus</title>
-        <link rel="icon" type="image/x-icon" href="img/bird.ico" />
-    </head>
-   
-    
-    <body>
-    
-    <h1>Stormi
-        <br />Applied 
-        <br />Computation
-        <br />Design Co.
-    </h1>
-        
-         <iframe name="window" rel="updates" width="400" height="90" src="updates.html" frameborder="0" style="
-            border-top-style: none;
-            border-left-style: none;
-            border-right-style: none;
-            border-bottom-style: ridge;
-            border-bottom-width: 10px;">
-            This browser does not support iFrames.</iframe> 
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stormi ACDC — Urban Design for a Regenerative World</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@1,500;1,600&family=Oxygen:wght@300;400;700&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png"><style>
+  :root {
+    --navy: #10233F;
+    --cream: #F7F3EA;
+    --accent: #A9824C;
+    --ink: #1B1B18;
+    --line: #D8D0BC;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Montserrat', sans-serif;
+  }
+  a { color: inherit; }
 
-<h2>Urban design that embodies technical process, 
-          <br>stylistic elegance, and human nature.</h2>
-            
-<!-- start menu links -->
- <h3>
+  .full-name {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-weight: 500;
+  }
 
-<a href="about.html" target="window">About</a>
-&nbsp;&nbsp;&nbsp;
+  .ribbon {
+    position: relative;
+    background: var(--navy);
+    color: var(--cream);
+    text-align: center;
+    padding: 0.65rem 3.5rem;
+    height: 2.6rem;
+    overflow: hidden;
+  }
+  .ribbon-icons {
+    position: absolute;
+    left: 1.25rem;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+  }
+  .ribbon-icons a { display: flex; align-items: center; justify-content: center; text-decoration: none; }
+  .ribbon-icons svg { width: 16px; height: 16px; fill: var(--cream); opacity: 0.85; }
+  .ribbon-icons a:hover svg { opacity: 1; }
+  .ribbon .tagline {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Oxygen', sans-serif;
+    font-weight: 300;
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    opacity: 0;
+    pointer-events: none;
+    animation: ribbonCycle 63s ease-in-out infinite;
+  }
+  .ribbon .t1 { animation-delay: 0s; }
+  .ribbon .t2 { animation-delay: -7s; }
+  .ribbon .t3 { animation-delay: -14s; }
+  .ribbon .t4 { animation-delay: -21s; }
+  .ribbon .t5 { animation-delay: -28s; }
+  .ribbon .t6 { animation-delay: -35s; }
+  .ribbon .t7 { animation-delay: -42s; }
+  .ribbon .t8 { animation-delay: -49s; }
+  .ribbon .t9 { animation-delay: -56s; }
+  @keyframes ribbonCycle {
+    0%      { opacity: 1; }
+    5.556%  { opacity: 1; }
+    11.111% { opacity: 0; }
+    94.444% { opacity: 0; }
+    100%    { opacity: 1; }
+  }
 
-<a href="mailto:hello@stormi.co">Contact</a>
-&nbsp;&nbsp;&nbsp;
-     
-<a href="updates.html" target="window">Home</a>
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 3.5rem;
+    border-bottom: 1px solid var(--line);
+  }
+  nav .wordmark {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--ink);
+    transition: color 250ms ease;
+  }
+  nav .wordmark:hover,
+  nav .wordmark:active {
+    color: var(--accent);
+  }
+  nav ul { list-style: none; display: flex; gap: 2.5rem; margin: 0; padding: 0; }
+  nav a.link {
+    text-decoration: none;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
 
-<!-- end menu links -->
-     
-     
-<!-- copyright and license -->
-     
-     
-<p> © 2018-2024 Stormi Applied Computation Design Company. All rights reserved. 
+  .hero-photo {
+    position: relative;
+    height: 62vh;
+    min-height: 420px;
+    overflow: hidden;
+    background: var(--navy);
+  }
+  .hero-photo .layer {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+  }
+  .hero-photo .layer.a {
+    background-image: url('https://images.unsplash.com/photo-1783144182552-6e03f08c5d40?auto=format&w=2400&q=82');
+    background-position: top;
+    animation: cycle4 32s ease-in-out infinite;
+    animation-delay: 0s;
+  }
+  .hero-photo .layer.b {
+    background-image: url('https://images.unsplash.com/photo-1729622396403-345986b54ca1?auto=format&w=2400&q=82');
+    background-position: center 42%;
+    animation: cycle4 32s ease-in-out infinite;
+    animation-delay: -8s;
+  }
+  .hero-photo .layer.c {
+    background-image: url('https://images.unsplash.com/photo-1508778098176-23616634af4e?auto=format&w=2400&q=82');
+    background-position: center;
+    animation: cycle4 32s ease-in-out infinite;
+    animation-delay: -16s;
+  }
+  .hero-photo .layer.d {
+    background-image: url('https://images.unsplash.com/photo-1527690499469-ef2eff9c6735?auto=format&w=2400&q=82');
+    background-position: center;
+    animation: cycle4 32s ease-in-out infinite;
+    animation-delay: -24s;
+  }
+  @keyframes cycle4 {
+    0%      { opacity: 1; }
+    12.5%   { opacity: 1; }
+    25%     { opacity: 0; }
+    87.5%   { opacity: 0; }
+    100%    { opacity: 1; }
+  }
 
-     <p><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a>       
-</h3>
-        
-<!-- end copyright and license -->
-    
-        </body>
+  .hero-text { padding: 3.5rem 3.5rem 4rem; max-width: 760px; }
+  .hero-text .eyebrow {
+    display: block;
+    font-family: 'Oxygen', sans-serif;
+    font-weight: 300;
+    font-variant-caps: small-caps;
+    font-size: 1.05rem;
+    letter-spacing: 1pt;
+    color: var(--accent);
+    margin-bottom: 1.25rem;
+  }
+  .hero-text h1 {
+    font-family: 'Libre Caslon Text', Georgia, serif;
+    font-weight: 700;
+    font-size: clamp(2.1rem, 4.6vw, 3.4rem);
+    line-height: 1.22;
+    margin: 0 0 1.25rem;
+    color: var(--navy);
+  }
+  .hero-text p {
+    font-size: 1.02rem;
+    line-height: 1.7;
+    color: #3E3D37;
+    max-width: 520px;
+    margin: 0 0 2rem;
+  }
+  .btn {
+    display: inline-block;
+    background: var(--accent);
+    color: var(--navy);
+    font-weight: 600;
+    font-size: 0.76rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.95rem 1.9rem;
+    text-decoration: none;
+  }
+
+  .credentials {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-bottom: 1px solid var(--line);
+  }
+  .credentials div { padding: 2.25rem 3.5rem; border-right: 1px solid var(--line); }
+  .credentials div:last-child { border-right: none; }
+  .credentials .label {
+    font-family: 'Oxygen', sans-serif;
+    font-weight: 700;
+    font-size: 1.15rem;
+    letter-spacing: 0.02em;
+    color: var(--navy);
+    margin-bottom: 0.4rem;
+  }
+  .credentials .desc {
+    font-size: 0.76rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #7A7666;
+  }
+
+  .cols {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+    padding: 5rem 3.5rem;
+  }
+  .cols a { text-decoration: none; color: var(--ink); }
+  .cols .n {
+    font-family: 'Oxygen', sans-serif;
+    font-weight: 700;
+    color: var(--accent);
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    margin-bottom: 1rem;
+    display: block;
+  }
+  .cols h3 { font-family: 'Libre Caslon Text', Georgia, serif; font-weight: 700; font-size: 1.3rem; margin: 0 0 0.9rem; color: var(--navy); }
+  .cols p { font-size: 0.94rem; line-height: 1.65; color: #4A4940; margin: 0; }
+
+  .quote { background: var(--navy); color: var(--cream); padding: 5rem 3.5rem; text-align: center; }
+  .quote p {
+    font-family: 'Libre Caslon Text', Georgia, serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(1.25rem, 2.4vw, 1.8rem);
+    line-height: 1.5;
+    max-width: 740px;
+    margin: 0 auto;
+  }
+  .quote .rule { width: 40px; height: 1px; background: var(--accent); margin: 0 auto 2rem; }
+  .quote-links {
+    margin-top: 2.25rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .quote-links a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid var(--accent);
+    padding-bottom: 2px;
+  }
+
+  footer { padding: 3rem 3.5rem 2.5rem; border-top: 1px solid var(--line); }
+  footer .meta { font-size: 0.76rem; color: #7A7666; line-height: 1.6; }
+  footer .callout {
+    font-family: 'Libre Caslon Text', Georgia, serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 1rem;
+    color: var(--accent);
+    margin-top: 0.9rem;
+  }
+  footer .callout a { color: var(--accent); text-decoration: underline; }
+
+  .logo-mark {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    width: 170px;
+    height: auto;
+    z-index: 60;
+    opacity: 0.95;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+  .logo-mark img { width: 100%; height: auto; display: block; }
+  .logo-mark:hover { opacity: 1; transform: translateY(-2px); }
+
+  @media (max-width: 780px) {
+    .ribbon { padding: 0.65rem 1.25rem; }
+    nav { flex-direction: column; align-items: flex-start; gap: 1rem; padding: 1.5rem 1.5rem; }
+    nav ul { flex-wrap: wrap; gap: 0.9rem 1.5rem; }
+    .hero-photo { height: 50vh; min-height: 320px; }
+    .hero-text { padding: 2.5rem 1.5rem 3rem; }
+    .credentials, .cols { grid-template-columns: 1fr; }
+    .credentials div { border-right: none; border-bottom: 1px solid var(--line); padding: 1.75rem 1.5rem; }
+    .cols { padding: 3rem 1.5rem; gap: 2.25rem; }
+    .quote { padding: 3rem 1.5rem; }
+    footer { padding: 2rem 1.5rem; }
+    .logo-mark { width: 88px; bottom: 1rem; right: 1rem; }
+  }
+
+  @media (max-width: 480px) {
+    .ribbon .tagline { font-size: 0.62rem; letter-spacing: 0.07em; }
+    nav .wordmark { font-size: 1.05rem; }
+    nav a.link { font-size: 0.68rem; }
+    .hero-photo { height: 42vh; min-height: 280px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="ribbon">
+  <div class="ribbon-icons">
+    <a href="https://www.linkedin.com/company/stormi-applied-computation-design-co/" target="_blank" rel="noopener" aria-label="Stormi ACDC on LinkedIn">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+      </svg>
+    </a>
+  </div>
+  <span class="tagline t1">Biophilic design</span>
+  <span class="tagline t2">Systems thinking</span>
+  <span class="tagline t3">Regenerative cities</span>
+  <span class="tagline t4">Applied research</span>
+  <span class="tagline t5">Valuing open space</span>
+  <span class="tagline t6">Welcoming diversity</span>
+  <span class="tagline t7">Bountiful sustainability</span>
+  <span class="tagline t8">Historic continuity</span>
+  <span class="tagline t9">Renewing the city and coastal fabric</span>
+</div>
+
+<nav>
+  <a class="wordmark" href="index.html">Stormi ACDC</a>
+  <ul>
+    <li><a class="link" href="about.html">About</a></li>
+    <li><a class="link" href="research.html">Research</a></li>
+    <li><a class="link" href="updates.html">Updates</a></li>
+    <li><a class="link" href="shop.html">Shop</a></li>
+    <li><a class="link" href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="hero-photo">
+  <div class="layer a"></div>
+  <div class="layer b"></div>
+  <div class="layer c"></div>
+  <div class="layer d"></div>
+</div>
+
+<section class="hero-text">
+  <span class="eyebrow">Stormi Applied Computation Design Co.</span>
+  <h1>Urban design for a regenerative world.</h1>
+  <p>We blend technical process, systems thinking, and stylistic elegance to reimagine how places sustain themselves — bringing clarity and craft to construction, planning, and live events.</p>
+  <a href="updates.html" class="btn">Get in touch</a>
+</section>
+
+<div class="credentials">
+  <div>
+    <div class="label">2018</div>
+    <div class="desc">Founded in California</div>
+  </div>
+  <div>
+    <div class="label">Biophilic design</div>
+    <div class="desc">Research in progress</div>
+  </div>
+  <div>
+    <div class="label">Integrated delivery</div>
+    <div class="desc">Planning through execution</div>
+  </div>
+</div>
+
+<div class="cols">
+  <a href="about.html">
+    <span class="n">I.</span>
+    <h3>About</h3>
+    <p>Based in California. We practice the clarity of technical process and the synergy of stylistic elegance to bring a fresh approach to planning.</p>
+  </a>
+  <a href="research.html">
+    <span class="n">II.</span>
+    <h3>Research</h3>
+    <p>An ongoing methodology exploring how the built environment can restore its own capacity to regenerate.</p>
+  </a>
+  <a href="updates.html">
+    <span class="n">III.</span>
+    <h3>Updates</h3>
+    <p>Notes from the studio — new work, new thinking, and what's next for Stormi ACDC.</p>
+  </a>
+</div>
+
+<section class="quote">
+  <div class="rule"></div>
+  <p>"Natural systems renew themselves — our work is paving the way to applying this research to benefit and enhance the human experience."</p>
+  <div class="quote-links">
+    <a href="updates.html">Let's connect</a>
+  </div>
+</section>
+
+<footer>
+  <div class="meta">© 2018–2026 <span class="full-name">Stormi Applied Computation Design Co.</span><br>All rights reserved. Based in California.<br><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons License</a></div>
+  <div class="callout">Driving culture forward. call or text us: <a href="tel:+18053808843">805 380 8843</a></div>
+</footer>
+
+<a class="logo-mark" href="index.html" aria-label="Stormi ACDC">
+  <img src="images/stormi-circle-mark.png" alt="Stormi Applied Computation Design Co. — gold sun and moon line-art mark">
+</a>
+</body>
 </html>
