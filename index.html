@@ -336,6 +336,11 @@ form.f{display:grid;gap:14px;position:relative;z-index:1}
 .f .row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 @media (max-width:560px){.f .row2{grid-template-columns:1fr}}
 .f .note{font-size:13px;color:var(--muted);min-height:1.3em}
+.f .note.ok{color:var(--heading);font-size:14px}
+.f .note.err{color:var(--red)}
+.f .note.err a{color:inherit}
+.f .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.f button[disabled]{opacity:.6;cursor:wait}
 button.btn{cursor:pointer;font-family:var(--f-label);line-height:inherit}
 /* even text padding on every button: trim the trailing letter-space on the right */
 .btn{padding-right:calc(22px - .14em)}
@@ -731,17 +736,19 @@ a.studio-link .go{display:inline-block;margin-top:16px;font-weight:600;font-size
         <h3>Reach the studio</h3>
         <hr class="hair">
         <p>If you're interested in taking part in our research — as it takes shape — or in becoming a partner as we revive, renew, rebuild, and restore urban places and businesses locally and globally, write to us here.</p>
-        <form class="f" id="contact-form" novalidate>
+        <form class="f" id="contact-form" action="https://formspree.io/f/mvzejovq" method="POST">
+          <input type="hidden" name="_subject" value="New message from stormi.co">
+          <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
           <div class="row2">
-            <label for="c-name">Name<input id="c-name" name="name" autocomplete="name"></label>
-            <label for="c-email">Email<input id="c-email" name="email" type="email" autocomplete="email"></label>
+            <label for="c-name">Name<input id="c-name" name="name" autocomplete="name" required></label>
+            <label for="c-email">Email<input id="c-email" name="email" type="email" autocomplete="email" required></label>
           </div>
           <label for="c-reason">Reason for contact
             <select id="c-reason" name="reason">
               <option>General inquiry</option><option>Research collaboration</option><option>Partnership</option><option>Schedule a call or meeting</option><option>Press / media</option><option>Nominate a site or business</option><option>Other</option>
             </select>
           </label>
-          <label for="c-msg">Message<textarea id="c-msg" name="message"></textarea></label>
+          <label for="c-msg">Message<textarea id="c-msg" name="message" required></textarea></label>
           <div><button class="btn solid" type="submit">Send message</button></div>
           <p class="note" id="contact-note" aria-live="polite"></p>
         </form>
@@ -827,6 +834,21 @@ a.studio-link .go{display:inline-block;margin-top:16px;font-weight:600;font-size
     var f=document.getElementById(id); if(!f) return;
     f.addEventListener('submit',function(e){e.preventDefault();document.getElementById(noteId).textContent=msg;});
   }
-  hook('contact-form','contact-note','Preview only: on the live site this sends your message to hello@stormi.co.');
+  (function(){
+    var f=document.getElementById('contact-form'); if(!f) return;
+    var note=document.getElementById('contact-note'), btn=f.querySelector('button[type=submit]');
+    f.addEventListener('submit',function(e){
+      e.preventDefault();
+      if(!f.checkValidity()){f.reportValidity();return;}
+      btn.disabled=true; note.className='note'; note.textContent='Sending…';
+      fetch(f.action,{method:'POST',body:new FormData(f),headers:{'Accept':'application/json'}})
+        .then(function(r){
+          if(r.ok){f.reset();note.className='note ok';note.textContent='Thank you. Your message has been sent, and we will be in touch soon.';}
+          else{throw new Error('send');}
+        })
+        .catch(function(){note.className='note err';note.innerHTML='Something went wrong. Please email <a href="mailto:hello@stormi.co">hello@stormi.co</a> directly.';})
+        .then(function(){btn.disabled=false;});
+    });
+  })();
 })();
 </script>
