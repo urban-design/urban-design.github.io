@@ -33,7 +33,7 @@
   --f-voice:'Playfair Display', Georgia, serif;
   --f-body:'Montserrat', system-ui, sans-serif;
   --f-label:'Oxygen', 'Montserrat', sans-serif;
-  --r-card:4px;
+  --r-card:16px;
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
@@ -81,7 +81,7 @@ header .wrap{display:flex;align-items:center;justify-content:space-between;gap:1
 .brand .m-lotus{opacity:0}
 /* lotus ghostmark, lower right of the founder card (kept inside the inner gold line) */
 .card.founder > *:not(.ghost-wrap):not(.corner){position:relative;z-index:1}
-.card.founder .ghost-wrap{position:absolute;inset:7px;border-radius:max(1.5px, calc(var(--r-card) - 7px));overflow:hidden;pointer-events:none;z-index:0}
+.card.founder .ghost-wrap{position:absolute;inset:7px;border-radius:calc(var(--r-card) - 7px);overflow:hidden;pointer-events:none;z-index:0}
 .ghost-lotus{position:absolute;right:-56px;bottom:-34px;width:330px;height:248px;opacity:.26;transform:rotate(-8deg);filter:blur(3.5px)}
 @media (max-width:600px){.ghost-lotus{width:250px;height:188px;right:-44px;bottom:-26px}}
 .brand:hover .mark svg:first-child,.brand:focus-visible .mark svg:first-child{animation:mark-grow 4.6s ease-in-out .2s 1,mark-out 4.6s ease-in-out .2s 1}
@@ -112,7 +112,7 @@ nav a:hover{color:var(--heading)}
   padding:38px 36px 32px;
 }
 .card::after{ /* inner hairline */
-  content:"";position:absolute;inset:6px;border:1px solid var(--gold-inner);border-radius:max(1.5px, calc(var(--r-card) - 6px));pointer-events:none;
+  content:"";position:absolute;inset:6px;border:1px solid var(--gold-inner);border-radius:calc(var(--r-card) - 6px);pointer-events:none;
 }
 @media (max-width:600px){.card{padding:30px 24px 26px}}
 .card .corner{color:var(--gold);position:absolute;top:14px;right:16px;width:16px;height:16px;opacity:.85}
@@ -224,7 +224,7 @@ nav a:hover{color:var(--heading)}
 
 /* photos framed in gold hairline cards */
 .photo{margin:0;padding:8px;border:1px solid var(--gold);border-radius:var(--r-card);background:var(--bg);box-shadow:0 0 16px -6px var(--mist-halo),0 14px 28px -18px var(--taupe-lift),0 2px 6px -3px var(--taupe-lift)}
-.photo .img{position:relative;border-radius:max(1.5px, calc(var(--r-card) - 7px));overflow:hidden;background:var(--panel);aspect-ratio:16/7;max-width:100%}
+.photo .img{position:relative;border-radius:calc(var(--r-card) - 7px);overflow:hidden;background:var(--panel);aspect-ratio:16/7;max-width:100%}
 .photo img{width:100%;height:100%;object-fit:cover;display:block}
 .photo .img::after{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:inset 0 0 0 1px var(--gold-soft);pointer-events:none}
 .photo figcaption{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:10px 6px 2px;font-size:12px;color:var(--on-obs-muted)}
